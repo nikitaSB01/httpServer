@@ -86,7 +86,7 @@ app.delete("/tickets/:id", (req, res) => {
 });
 
 // Статические файлы
-app.use(express.static(path.join(__dirname, "../httpFrontend/dist")));
+//  app.use(express.static(path.join(__dirname, "../httpFrontend/dist")));
 
 // Запуск сервера
 const PORT = 7070;
