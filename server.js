@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import * as crypto from "crypto";
 import pino from 'pino';
 import pinoPretty from 'pino-pretty';
+import path from 'path'; // Импортируем модуль path
 
 const app = express();
 const logger = pino(pinoPretty());
@@ -20,6 +21,9 @@ app.use((req, res, next) => {
   res.setHeader('Content-Type', 'application/json');
   next();
 });
+
+// Обрабатываем статические файлы из папки 'dist'
+app.use(express.static(path.join(__dirname, '../httpFrontend/dist')));
 
 let tickets = [
   {
